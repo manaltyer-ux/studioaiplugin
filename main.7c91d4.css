@@ -1,0 +1,209 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-page: #e3e7eb;
+    --card-outer: #52575d;
+    --right-panel: #393b3f;
+    --form-card: #52575d;
+    --text-white: #ffffff;
+    --text-dark: #191b1d;
+    --btn-bg: #ffffff;
+    --btn-hover: #f0f0f0;
+    --font-heading: 'Lilita One', cursive, sans-serif;
+    --font-ui: 'Fredoka', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-page);
+  
+    background-image: radial-gradient(#cbd3db 2px, transparent 2px);
+    background-size: 24px 24px;
+    font-family: var(--font-heading);
+    padding: 20px;
+}
+
+
+.auth-card {
+    display: flex;
+    width: 100%;
+    max-width: 950px;
+    height: 580px;
+    background-color: var(--card-outer);
+    border-radius: 36px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 35px 35px 35px 45px;
+    position: relative;
+}
+
+.brand-title {
+    font-size: 2.8rem;
+    color: var(--text-white);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.video-container {
+    flex: 1;
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; 
+}
+
+.right-section {
+    flex: 1;
+    background-color: var(--right-panel);
+    border-radius: 36px 0 0 36px; 
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.theme-toggle-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: var(--card-outer);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.08);
+    opacity: 0.9;
+}
+
+.theme-toggle-btn img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.form-card {
+    width: 100%;
+    max-width: 340px;
+    background-color: var(--form-card);
+    border-radius: 28px;
+    padding: 40px 24px 50px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 55px;
+}
+
+.form-title {
+    color: var(--text-white);
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.google-btn {
+    width: 100%;
+    background-color: var(--btn-bg);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 50px;
+    padding: 14px 20px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.google-btn:hover {
+    background-color: var(--btn-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.google-btn:active {
+    transform: translateY(0);
+}
+
+.google-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.footer-links a, 
+.footer-links .divider {
+    color: var(--text-white);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    text-decoration: none;
+    letter-spacing: 0.8px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .auth-card {
+        flex-direction: column;
+        height: auto;
+        border-radius: 28px;
+    }
+
+    .right-section {
+        border-radius: 28px;
+        padding: 50px 20px 30px 20px;
+    }
+
+    .video-container {
+        height: 220px;
+    }
+}
