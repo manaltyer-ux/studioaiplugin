@@ -5,22 +5,17 @@
 }
 
 :root {
-    --bg-page: #dce1e7;
-    --bg-dot: #abb4c2;
-
-    --studio-darkest: #16171d;      
-    --studio-panel: #1b1c23;       
-    --studio-tile: #262832;        
-    --studio-tile-hover: #313440;   
-    --studio-border: #353845;        
-    
+    --bg-page: #0d0e12;
+    --studio-darkest: #16171d;
+    --studio-panel: #1b1c23;
+    --studio-tile: #262832;
+    --studio-tile-hover: #313440;
+    --studio-border: #353845;
     --text-white: #ffffff;
     --text-muted: #9aa1af;
     --text-dark: #121316;
     --btn-bg: #ffffff;
     --btn-hover: #e8eaee;
-    
-
     --font-heading: 'Lilita One', cursive, sans-serif;
     --font-ui: 'Fredoka', sans-serif;
 }
@@ -31,8 +26,6 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--bg-page);
-    background-image: radial-gradient(var(--bg-dot) 2.5px, transparent 2.5px);
-    background-size: 24px 24px;
     font-family: var(--font-heading);
     padding: 2.5vh 2.5vw;
     overflow: hidden;
@@ -48,7 +41,7 @@ body {
     border: 1px solid var(--studio-border);
     border-radius: 36px;
     overflow: hidden;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
 }
 
 .left-section {
@@ -60,7 +53,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0d0e12;
+    background-color: #000000;
 }
 
 .brand-title {
@@ -73,7 +66,7 @@ body {
     letter-spacing: 2px;
     text-transform: uppercase;
     user-select: none;
-    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
 }
 
 .video-container {
@@ -141,7 +134,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin: auto 0;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .form-title {
@@ -167,14 +160,14 @@ body {
     gap: 12px;
     cursor: pointer;
     letter-spacing: 0.5px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
     transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .google-btn:hover {
     background-color: var(--btn-hover);
     transform: translateY(-2px);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4);
 }
 
 .google-btn:active {
