@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -6,14 +5,22 @@
 }
 
 :root {
-    --bg-page: #e3e7eb;
-    --card-outer: #52575d;
-    --right-panel: #393b3f;
-    --form-card: #52575d;
+    --bg-page: #dce1e7;
+    --bg-dot: #abb4c2;
+
+    --studio-darkest: #16171d;      
+    --studio-panel: #1b1c23;       
+    --studio-tile: #262832;        
+    --studio-tile-hover: #313440;   
+    --studio-border: #353845;        
+    
     --text-white: #ffffff;
-    --text-dark: #191b1d;
+    --text-muted: #9aa1af;
+    --text-dark: #121316;
     --btn-bg: #ffffff;
-    --btn-hover: #f0f0f0;
+    --btn-hover: #e8eaee;
+    
+
     --font-heading: 'Lilita One', cursive, sans-serif;
     --font-ui: 'Fredoka', sans-serif;
 }
@@ -24,66 +31,71 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--bg-page);
-  
-    background-image: radial-gradient(#cbd3db 2px, transparent 2px);
+    background-image: radial-gradient(var(--bg-dot) 2.5px, transparent 2.5px);
     background-size: 24px 24px;
     font-family: var(--font-heading);
-    padding: 20px;
+    padding: 2.5vh 2.5vw;
+    overflow: hidden;
 }
-
 
 .auth-card {
     display: flex;
-    width: 100%;
-    max-width: 950px;
-    height: 580px;
-    background-color: var(--card-outer);
+    width: 95vw;
+    max-width: 1600px;
+    height: 90vh;
+    min-height: 600px;
+    background-color: var(--studio-darkest);
+    border: 1px solid var(--studio-border);
     border-radius: 36px;
     overflow: hidden;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
 }
 
-
 .left-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 35px 35px 35px 45px;
+    flex: 1.15;
     position: relative;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0d0e12;
 }
 
 .brand-title {
-    font-size: 2.8rem;
+    position: absolute;
+    top: 40px;
+    left: 45px;
+    z-index: 10;
+    font-size: 3.2rem;
     color: var(--text-white);
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 20px;
     user-select: none;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
 }
 
 .video-container {
-    flex: 1;
     width: 100%;
-    border-radius: 24px;
+    height: 100%;
+    border-radius: 0;
     overflow: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .bg-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    pointer-events: none; 
+    pointer-events: none;
 }
 
 .right-section {
-    flex: 1;
-    background-color: var(--right-panel);
-    border-radius: 36px 0 0 36px; 
-    padding: 30px 40px;
+    flex: 0.95;
+    background-color: var(--studio-darkest);
+    border-left: 1px solid var(--studio-border);
+    padding: 40px 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -93,48 +105,50 @@ body {
 
 .theme-toggle-btn {
     position: absolute;
-    top: 25px;
-    right: 25px;
-    width: 55px;
-    height: 55px;
+    top: 30px;
+    right: 35px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background-color: var(--card-outer);
-    border: none;
+    background-color: var(--studio-tile);
+    border: 1px solid var(--studio-border);
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .theme-toggle-btn:hover {
     transform: scale(1.08);
-    opacity: 0.9;
+    background-color: var(--studio-tile-hover);
 }
 
 .theme-toggle-btn img {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     object-fit: contain;
 }
 
 .form-card {
     width: 100%;
-    max-width: 340px;
-    background-color: var(--form-card);
-    border-radius: 28px;
-    padding: 40px 24px 50px 24px;
+    max-width: 420px;
+    background-color: var(--studio-tile);
+    border: 1px solid var(--studio-border);
+    border-radius: 30px;
+    padding: 50px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 55px;
+    margin: auto 0;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 .form-title {
     color: var(--text-white);
-    font-size: 2rem;
-    letter-spacing: 1px;
-    margin-bottom: 50px;
+    font-size: 2.2rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 40px;
     text-transform: uppercase;
 }
 
@@ -144,23 +158,23 @@ body {
     color: var(--text-dark);
     border: none;
     border-radius: 50px;
-    padding: 14px 20px;
+    padding: 16px 24px;
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
     cursor: pointer;
     letter-spacing: 0.5px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .google-btn:hover {
     background-color: var(--btn-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
 }
 
 .google-btn:active {
@@ -168,42 +182,64 @@ body {
 }
 
 .google-icon {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
 }
 
 .footer-links {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     align-items: center;
 }
 
 .footer-links a, 
 .footer-links .divider {
-    color: var(--text-white);
+    color: var(--text-muted);
     font-family: var(--font-heading);
     font-size: 0.95rem;
     text-decoration: none;
     letter-spacing: 0.8px;
+    transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
+    color: var(--text-white);
     text-decoration: underline;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
+    body {
+        overflow: auto;
+        padding: 15px;
+    }
+
     .auth-card {
         flex-direction: column;
         height: auto;
+        min-height: auto;
         border-radius: 28px;
+    }
+
+    .left-section {
+        height: 280px;
+        flex: none;
+    }
+
+    .brand-title {
+        font-size: 2.2rem;
+        top: 25px;
+        left: 25px;
     }
 
     .right-section {
-        border-radius: 28px;
-        padding: 50px 20px 30px 20px;
+        border-left: none;
+        border-top: 1px solid var(--studio-border);
+        padding: 40px 20px;
+        gap: 30px;
     }
 
-    .video-container {
-        height: 220px;
+    .form-card {
+        margin: 0;
+        padding: 35px 20px;
     }
 }
