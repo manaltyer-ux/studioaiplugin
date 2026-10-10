@@ -15,6 +15,7 @@
     --text-muted: #747775;
     --btn-bg: #1f1f1f;
     --btn-hover: #2e3032;
+    --font-brand: 'Lilita One', cursive, sans-serif;
     --font-sans: 'Google Sans', 'Google Sans Text', 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -77,10 +78,10 @@ html, body {
 }
 
 .brand-title {
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-family: var(--font-brand);
+    font-size: 1.8rem;
     color: var(--text-primary);
-    letter-spacing: 0.8px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     line-height: 1;
 }
