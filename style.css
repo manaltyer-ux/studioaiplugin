@@ -42,7 +42,9 @@ body.dark-mode {
 
 html, body {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
     font-family: var(--font-sans);
     background-color: var(--canvas-bg);
     background-image: radial-gradient(var(--dot-color) 2px, transparent 2px);
@@ -62,7 +64,7 @@ html, body {
     position: fixed;
     inset: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: space-around;
     gap: 24px;
@@ -79,6 +81,7 @@ html, body {
     flex-direction: column;
     width: 220px;
     flex-shrink: 0;
+    overflow: hidden;
     contain: layout paint style;
 }
 
@@ -86,27 +89,20 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-bottom: 20px;
+    flex-shrink: 0;
     will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
 }
 
 .marquee-column.up .marquee-track {
-    animation: scrollUp 28s linear infinite;
+    animation: scrollUp linear infinite;
 }
 
 .marquee-column.down .marquee-track {
-    animation: scrollDown 34s linear infinite;
-}
-
-.marquee-column:nth-child(2).down .marquee-track {
-    animation-duration: 38s;
-}
-
-.marquee-column:nth-child(3).up .marquee-track {
-    animation-duration: 32s;
-}
-
-.marquee-column:nth-child(4).down .marquee-track {
-    animation-duration: 30s;
+    animation: scrollDown linear infinite;
 }
 
 @keyframes scrollUp {
@@ -114,13 +110,13 @@ html, body {
         transform: translate3d(0, 0, 0);
     }
     100% {
-        transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -100%, 0);
     }
 }
 
 @keyframes scrollDown {
     0% {
-        transform: translate3d(0, -50%, 0);
+        transform: translate3d(0, -100%, 0);
     }
     100% {
         transform: translate3d(0, 0, 0);
@@ -209,7 +205,9 @@ html, body {
     position: relative;
     z-index: 10;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
     padding: 24px 38px 28px;
     display: flex;
     flex-direction: column;
@@ -404,8 +402,115 @@ html, body {
     .form-title {
         font-size: 2.1rem;
     }
+}
 
-    .marquee-column:nth-child(5) {
-        display: none;
+@media (max-width: 640px) {
+    .page-container {
+        padding: 16px 16px 20px;
+        gap: 12px;
+    }
+
+    .brand-box {
+        min-width: unset;
+        padding: 8px 18px;
+        gap: 10px;
+        border-radius: 16px;
+    }
+
+    .brand-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .brand-title {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+    }
+
+    .marquee-viewport {
+        gap: 14px;
+        padding: 0 10px;
+    }
+
+    .marquee-column {
+        width: 140px;
+    }
+
+    .marquee-track {
+        gap: 14px;
+        padding-bottom: 14px;
+    }
+
+    .model-card {
+        width: 140px;
+        height: 140px;
+        padding: 10px;
+        border-radius: 16px;
+    }
+
+    .model-corner-tag {
+        padding: 2px 6px;
+        font-size: 0.58rem;
+        border-radius: 6px;
+    }
+
+    .corner-dot {
+        width: 4px;
+        height: 4px;
+    }
+
+    .placeholder-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .placeholder-label {
+        font-size: 0.68rem;
+    }
+
+    .auth-box {
+        max-width: 100%;
+        min-height: auto;
+        padding: 36px 20px 24px;
+        border-radius: 26px;
+        gap: 28px;
+    }
+
+    .theme-toggle-btn {
+        top: 16px;
+        right: 16px;
+        width: 38px;
+        height: 38px;
+    }
+
+    .theme-toggle-btn img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .form-title {
+        font-size: 1.85rem;
+        margin-bottom: 24px;
+    }
+
+    .google-btn {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+        gap: 10px;
+    }
+
+    .google-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-links {
+        gap: 8px;
+    }
+
+    .footer-links a, 
+    .footer-links .divider {
+        font-size: 0.72rem;
+        letter-spacing: 0.3px;
     }
 }
