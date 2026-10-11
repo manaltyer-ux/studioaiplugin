@@ -5,10 +5,11 @@ const modelsData = [
     { name: "cactus", file: "cactus.png", color: "#00E599" },
     { name: "tree", file: "tree.png", color: "#CCFF00" },
     { name: "motorcycle", file: "motorcycle.png", color: "#FF7A00" },
-    { name: "gas station", file: "gas_station.png", color: "#00F0FF" },
+    { name: "super car", file: "super_car.png", color: "#00F0FF" },
+    { name: "gas station", file: "gas_station.png", color: "#FF7A00" },
     { name: "dragon", file: "dragon.png", color: "#FF007A" },
     { name: "donut", file: "donut.png", color: "#A855F7" },
-    { name: "Super Car", file: "Car.png", color: "#FF7A00" }
+    { name: "backpack", file: "backpack.png", color: "#FF7A00" }
 ];
 
 const colors = [
@@ -69,29 +70,37 @@ function initMarquee() {
 
     viewport.innerHTML = "";
 
-    const columnsCount = window.innerWidth > 1440 ? 5 : 4;
+    let columnsCount = 4;
+    if (window.innerWidth <= 640) {
+        columnsCount = 2;
+    } else if (window.innerWidth <= 1024) {
+        columnsCount = 3;
+    } else if (window.innerWidth > 1440) {
+        columnsCount = 5;
+    }
+
     const directions = ["down", "up", "down", "up", "down"];
+    const speeds = [32, 28, 36, 30, 34];
 
     for (let c = 0; c < columnsCount; c++) {
         const column = document.createElement("div");
         column.className = `marquee-column ${directions[c % directions.length]}`;
 
-        const track = document.createElement("div");
-        track.className = "marquee-track";
-
         const shuffled = [...modelsData].sort(() => 0.5 - Math.random());
 
-        shuffled.forEach((m) => {
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            track.appendChild(buildCard({ ...m, color: randomColor }));
-        });
+        for (let t = 0; t < 2; t++) {
+            const track = document.createElement("div");
+            track.className = "marquee-track";
+            track.style.animationDuration = `${speeds[c % speeds.length]}s`;
 
-        shuffled.forEach((m) => {
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            track.appendChild(buildCard({ ...m, color: randomColor }));
-        });
+            shuffled.forEach((m) => {
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                track.appendChild(buildCard({ ...m, color: randomColor }));
+            });
 
-        column.appendChild(track);
+            column.appendChild(track);
+        }
+
         viewport.appendChild(column);
     }
 }
