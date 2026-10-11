@@ -8,7 +8,7 @@ const modelsData = [
     { name: "gas station", file: "gas_station.png", color: "#00F0FF" },
     { name: "dragon", file: "dragon.png", color: "#FF007A" },
     { name: "donut", file: "donut.png", color: "#A855F7" },
-    { name: "backpack", file: "backpack.png", color: "#FF7A00" }
+    { name: "Super Car", file: "Car.png", color: "#FF7A00" }
 ];
 
 const colors = [
