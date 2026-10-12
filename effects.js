@@ -32,22 +32,30 @@ function buildCard(item) {
     const card = document.createElement("div");
     card.className = "model-card";
 
-    const badgeBg = `${item.color}18`;
-    const badgeBorder = `${item.color}45`;
-
     card.innerHTML = `
-        <div class="model-corner-tag" style="background: ${badgeBg}; border: 1px solid ${badgeBorder}; color: ${item.color};">
-            <span class="corner-dot" style="background: ${item.color};"></span>
-            <span>${item.name}</span>
-        </div>
         <div class="model-image-wrap">
             <img class="model-img" src="assets/Models/${item.file}" alt="${item.name}" style="display: none;">
             <div class="model-placeholder">
                 ${createWireframeSVG(item.color)}
-                <span class="placeholder-label">${item.name}</span>
             </div>
         </div>
     `;
+
+    const img = card.querySelector(".model-img");
+    const placeholder = card.querySelector(".model-placeholder");
+
+    img.onload = () => {
+        img.style.display = "block";
+        placeholder.style.display = "none";
+    };
+
+    img.onerror = () => {
+        img.remove();
+        placeholder.style.display = "flex";
+    };
+
+    return card;
+}
 
     const img = card.querySelector(".model-img");
     const placeholder = card.querySelector(".model-placeholder");
