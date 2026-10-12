@@ -9,13 +9,15 @@ const modelsData = [
     { name: "gas station", file: "gas_station.png", color: "#FF7A00" },
     { name: "dragon", file: "dragon.png", color: "#FF007A" },
     { name: "donut", file: "donut.png", color: "#A855F7" },
+    { name: "potion", file: "potion.png", color: "#A855F7" },
+    { name: "chest", file: "chest.png", color: "#FF7A00" },
 ];
 
 const colors = [
     "#FF7A00", "#00F0FF", "#7928CA", "#00E599", "#FF007A",
-    "#3B82F6", "#CCFF00", "#FF3B30", "#A855F7", "#64748B"
+    "#3B82F6", "#CCFF00", "#FF3B30", "#A855F7", "#64748B",
+    "#22D3EE", "#FBBF24"
 ];
-
 function createWireframeSVG(color) {
     return `
     <svg class="placeholder-icon" viewBox="0 0 48 48" fill="none" stroke="${color}">
