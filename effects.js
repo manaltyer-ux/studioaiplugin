@@ -71,7 +71,7 @@ function buildCard(item) {
     };
 
     return card;
-}
+}:
 
 function initMarquee() {
     const viewport = document.getElementById("marquee-viewport");
