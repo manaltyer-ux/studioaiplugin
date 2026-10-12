@@ -10,7 +10,7 @@ const modelsData = [
     { name: "dragon", file: "dragon.png", color: "#FF007A" },
     { name: "donut", file: "donut.png", color: "#A855F7" },
     { name: "potion", file: "potion.png", color: "#A855F7" },
-    { name: "chest", file: "chest.png", color: "#FF7A00" },
+    { name: "chest", file: "chest.png", color: "#FF7A00" }
 ];
 
 const colors = [
@@ -18,6 +18,7 @@ const colors = [
     "#3B82F6", "#CCFF00", "#FF3B30", "#A855F7", "#64748B",
     "#22D3EE", "#FBBF24"
 ];
+
 function createWireframeSVG(color) {
     return `
     <svg class="placeholder-icon" viewBox="0 0 48 48" fill="none" stroke="${color}">
@@ -57,41 +58,14 @@ function buildCard(item) {
     return card;
 }
 
-  
-function buildCard(item) {
-    const card = document.createElement("div");
-    card.className = "model-card";
-
-    card.innerHTML = `
-        <div class="model-image-wrap">
-            <img
-                class="model-img"
-                src="assets/Models/${item.file}"
-                alt="${item.name}"
-                style="display: none;"
-            >
-            <div class="model-placeholder">
-                ${createWireframeSVG(item.color)}
-            </div>
-        </div>
-    `;
-
-    const img = card.querySelector(".model-img");
-    const placeholder = card.querySelector(".model-placeholder");
-
-    img.onload = () => {
-        img.style.display = "block";
-        placeholder.style.display = "none";
-    };
-
-    img.onerror = () => {
-        img.remove();
-        placeholder.style.display = "flex";
-    };
-
-    return card;
+function shuffle(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
 }
-
 
 function initMarquee() {
     const viewport = document.getElementById("marquee-viewport");
@@ -110,17 +84,25 @@ function initMarquee() {
 
     const directions = ["down", "up", "down", "up", "down"];
     const speeds = [32, 28, 36, 30, 34];
+    const timeOffsets = [0, -14, -7, -21, -11];
+
+    let lastLeadName = null;
 
     for (let c = 0; c < columnsCount; c++) {
         const column = document.createElement("div");
         column.className = `marquee-column ${directions[c % directions.length]}`;
 
-        const shuffled = [...modelsData].sort(() => 0.5 - Math.random());
+        let shuffled = shuffle(modelsData);
+        if (lastLeadName && shuffled[0].name === lastLeadName) {
+            shuffled.push(shuffled.shift());
+        }
+        lastLeadName = shuffled[0].name;
 
         for (let t = 0; t < 2; t++) {
             const track = document.createElement("div");
             track.className = "marquee-track";
             track.style.animationDuration = `${speeds[c % speeds.length]}s`;
+            track.style.animationDelay = `${timeOffsets[c % timeOffsets.length]}s`;
 
             shuffled.forEach((m) => {
                 const randomColor = colors[Math.floor(Math.random() * colors.length)];
