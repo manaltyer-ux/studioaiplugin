@@ -57,6 +57,25 @@ function buildCard(item) {
     return card;
 }
 
+  
+function buildCard(item) {
+    const card = document.createElement("div");
+    card.className = "model-card";
+
+    card.innerHTML = `
+        <div class="model-image-wrap">
+            <img
+                class="model-img"
+                src="assets/Models/${item.file}"
+                alt="${item.name}"
+                style="display: none;"
+            >
+            <div class="model-placeholder">
+                ${createWireframeSVG(item.color)}
+            </div>
+        </div>
+    `;
+
     const img = card.querySelector(".model-img");
     const placeholder = card.querySelector(".model-placeholder");
 
@@ -71,7 +90,8 @@ function buildCard(item) {
     };
 
     return card;
-}:
+}
+
 
 function initMarquee() {
     const viewport = document.getElementById("marquee-viewport");
